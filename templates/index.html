@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Messagerie chiffrée (AES-GCM côté client)</title>
+  <link rel="stylesheet" href="/static/css/styles.css"/>
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1> AHN SECURITY </h1>
+      <div class="auth">
+        <input id="username" placeholder="Nom d'utilisateur" />
+        <button id="btnRegister">Créer</button>
+        <button id="btnLogin">Connexion</button>
+      </div>
+    </header>
+
+    <section class="controls">
+      <div class="row">
+        <label>Salon</label>
+        <input id="room" value="general" />
+      </div>
+      <div class="row">
+        <label>Phrase secrète (partagée)</label>
+        <input id="passphrase" type="password" placeholder="ex: mot de passe partagé"/>
+      </div>
+      <div class="row">
+        <label>Algorithme</label>
+        <select id="algo">
+          <option value="AES-GCM">AES-GCM (recommandé)</option>
+          <option value="CAESAR">César (démo)</option>
+        </select>
+      </div>
+    </section>
+
+    <main class="chat">
+      <aside class="left">
+        <h2>Émetteur</h2>
+        <div class="composer">
+          <textarea id="message" rows="4" placeholder="Votre message..."></textarea>
+          <button id="btnSend">Envoyer</button>
+        </div>
+      </aside>
+      <section class="right">
+        <h3>Utilisateurs en ligne</h3>
+        <ul id="onlineUsers"></ul>
+        <h2>Récepteurs (messages du salon)</h2>
+        <div id="messages" class="messages"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <small>Entièrement chiffré côté client. La base de données stocke uniquement des textes chiffrés.</small>
+    </footer>
+  </div>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
